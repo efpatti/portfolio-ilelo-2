@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/navbar";
+import Sidebar from "@/components/sidebar";
 
 // Configurando a fonte Open Sans
 const font = Open_Sans({
@@ -20,8 +22,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={font.className}>{children}</body>
+    <html lang="pt-BR">
+      <body className={font.className}>
+        <Navbar />
+        <div className="flex justify-center items-center justify-items-center">
+          <div className="w-1/12">
+            <Sidebar />
+          </div>
+          <main className="w-11/12">{children}</main>
+        </div>
+      </body>
     </html>
   );
 }
